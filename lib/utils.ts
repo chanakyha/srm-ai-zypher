@@ -27,10 +27,3 @@ export function getTimeRemaining(targetDate: Date): {
 
   return { days, hours, minutes, seconds };
 }
-
-// Example usage:
-const targetDate = new Date("2024-02-14T12:00:00"); // Replace with your target date
-const remainingTime = getTimeRemaining(targetDate);
-console.log(
-  `Days: ${remainingTime.days}, Hours: ${remainingTime.hours}, Minutes: ${remainingTime.minutes}, Seconds: ${remainingTime.seconds}`
-);

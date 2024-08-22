@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import type { Container, Engine } from "tsparticles-engine";
 import Particles from "react-particles";
 import { loadSlim } from "tsparticles-slim";
+import { config } from "@/public/assets/particles_final";
 
 const ParticleJs = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -12,12 +13,10 @@ const ParticleJs = () => {
 
   const particlesLoaded = useCallback(
     async (container: Container | undefined) => {
-      await console.log(container);
+      await console.log("Particle Container", container);
     },
     []
   );
-
-  const options = require("@/public/assets/particles_final.json");
 
   return (
     <Particles
@@ -27,7 +26,7 @@ const ParticleJs = () => {
       style={{
         zIndex: -1,
       }}
-      options={options}
+      options={config}
     />
   );
 };

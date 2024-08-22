@@ -22,22 +22,22 @@ const Header = () => {
     href: string;
   };
   const navContents: navContent[] = [
-    {
-      name: "Home",
-      href: "/",
-    },
-    {
-      name: "Events",
-      href: "/events",
-    },
-    {
-      name: "About",
-      href: "/about",
-    },
-    {
-      name: "Sponsors",
-      href: "/sponsors",
-    },
+    // {
+    //   name: "Home",
+    //   href: "/",
+    // },
+    // {
+    //   name: "Events",
+    //   href: "/events",
+    // },
+    // {
+    //   name: "About",
+    //   href: "/about",
+    // },
+    // {
+    //   name: "Sponsors",
+    //   href: "/sponsors",
+    // },
   ];
 
   const path = usePathname();
@@ -72,7 +72,18 @@ const Header = () => {
             {`Zypher'24`}
           </h1>
         </Link>
-        <div className="hidden md:inline-flex gap-4 items-center">
+        {navContents.length === 0 && (
+          <p className="font-bold animate-pulse text-neutral-200">
+            Sept 26th 2024 • Registrations Starts Soon
+          </p>
+        )}
+        <div
+          className={cn(
+            navContents.length === 0
+              ? "md:hidden"
+              : "hidden md:inline-flex gap-4 items-center"
+          )}
+        >
           {navContents.map((item, index) => {
             return (
               <Link key={index} href={item.href}>

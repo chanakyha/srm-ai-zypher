@@ -2,12 +2,11 @@
 
 import { ArrowRight } from "lucide-react";
 import ParticleJs from "../Particle";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { cn, getTimeRemaining } from "@/lib/utils";
 
-const eventDate = new Date("February 20, 2024 7:30:00");
+const eventDate = new Date("September 26, 2024 7:30:00");
 
 const Hero = () => {
   const text = "ZYPHER'24".split("");
@@ -40,6 +39,7 @@ const Hero = () => {
                   delay: i / 10,
                   bounce: true,
                 }}
+                className="text-ui-secondary"
                 key={i}
               >
                 {el}{" "}

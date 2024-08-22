@@ -4,7 +4,11 @@ import Image from "next/image";
 import { ThreeCircles } from "react-loader-spinner";
 import EventLogo from "@/images/event-logo.jpeg";
 
+import resolveConfig from "tailwindcss/resolveConfig";
+import tailwindConfig from "@/tailwind.config";
+
 const LoadingComponent = () => {
+  const fullConfig = resolveConfig(tailwindConfig);
   return (
     <div className="h-screen w-screen fixed top-0 bg-black z-50 flex flex-col md:flex-col items-center justify-center gap-10">
       <Image
@@ -19,7 +23,7 @@ const LoadingComponent = () => {
         visible={true}
         height="100"
         width="100"
-        color="#129ffb"
+        color={fullConfig.theme.colors.ui.primary}
         ariaLabel="three-circles-loading"
         wrapperStyle={{}}
         wrapperClass=""

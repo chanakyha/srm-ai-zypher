@@ -1,4 +1,5 @@
 import { sponsorImages } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import Image, { StaticImageData } from "next/image";
 
 const SponsorsPage = () => {
@@ -9,8 +10,14 @@ const SponsorsPage = () => {
           Sponsors
         </h1>
 
-        <div className="container-fix grid grid-cols-1 gap-4">
-          <SponsorCategory images={sponsorImages} title="Souvenir Sponsors" />
+        <div
+          className={cn(
+            sponsorImages.length === 0
+              ? "hidden"
+              : "container-fix grid grid-cols-1 gap-4"
+          )}
+        >
+          <SponsorCategory images={sponsorImages!} title="Souvenir Sponsors" />
           {/* <SponsorCategory images={sponsorImages} title="Certificate Sponsor" />
           <SponsorCategory images={sponsorImages} title="Logistics Partner" />
           <SponsorCategory images={sponsorImages} title="Beverage Sponsor" /> */}
@@ -24,7 +31,7 @@ export default SponsorsPage;
 
 interface SponsorCategoryProps {
   title: string;
-  images: StaticImageData[];
+  images: string[];
 }
 
 const SponsorCategory = ({ title, images }: SponsorCategoryProps) => {
