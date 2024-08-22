@@ -1,10 +1,9 @@
 import { db } from "@/backend/firebase";
 import EventCard from "@/components/events/EventCard";
 import { cn } from "@/lib/utils";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
 import BgImage from "@/images/events-bg.jpeg";
-import { redirect } from "next/navigation";
 
 const EventsPage = async () => {
   const eventsRef = collection(db, "events");
@@ -29,6 +28,12 @@ const EventsPage = async () => {
       closed: data.closed,
     };
   });
+
+  return (
+    <div className="h-fix w-screen flex items-center justify-center">
+      <p className="text-ui-primary text-3xl font-bold">Coming Soon</p>
+    </div>
+  );
 
   return (
     <div className="h-fix w-screen relative">
